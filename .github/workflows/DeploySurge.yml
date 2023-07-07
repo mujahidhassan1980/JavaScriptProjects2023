@@ -1,0 +1,29 @@
+name: Deploy Project to Surge
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    #We are going to use checkout action in order for github reposiroty to be available on ubuntu system which is used above
+    - uses: actions/checkout@v3
+    
+    #Below action is used to install node.js environment on ubuntu
+    - name: Installing Node.JS Environment
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+  #below using run command to install surge on ubuntu
+    - name: Installing Surge
+      run: npm install --global surge
+      
+  #Deploy app to surge platform
+    - name: Deploying App to Surge
+      run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+
+    
