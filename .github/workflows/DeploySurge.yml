@@ -10,8 +10,7 @@ jobs:
     
     steps:
     #We are going to use checkout action in order for github reposiroty to be available on ubuntu system which is used above
-    - name: Checkout the github repository code on the ubuntu machine
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     
     #Below action is used to install node.js environment on ubuntu
     - name: Installing Node.JS Environment
