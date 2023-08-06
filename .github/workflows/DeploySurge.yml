@@ -24,6 +24,6 @@ jobs:
       
   #Deploy app to surge platform
     - name: Deploying App to Surge
-      run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      run: surge ./ mujahidhassanjsprojects2023.surge.sh --token ${{ secrets.SURGE_TOKEN }}
 
     
